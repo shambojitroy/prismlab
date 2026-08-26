@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="PRISM Lab | Research — Precision and Responsive Interdisciplinary Soft Matter Lab, IIT Guwahati" name="description"/>
+<meta content="#0d2b57" name="theme-color"/>
+<title>Research | PRISM Lab | IIT Guwahati</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root{
+      --navy:#0d2b57;
+      --navy-2:#173d73;
+      --blue:#2459a6;
+      --green:#87b98b;
+      --green-soft:#dcefe1;
+      --purple:#704a98;
+      --magenta:#a34d82;
+      --ink:#162238;
+      --muted:#5e6d82;
+      --line:#dbe4ef;
+      --surface:#ffffff;
+      --bg:#f7faff;
+      --shadow:0 14px 36px rgba(13,43,87,.10);
+      --radius:22px;
+      --header-height:78px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:96px}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#fff 0%,var(--bg) 100%);
+      color:var(--ink);
+      font-family:"Inter",Arial,sans-serif;
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none}
+    img,video{max-width:100%;display:block}
+    button{font:inherit}
+
+    /* ================= HEADER — MATCHES HOMEPAGE ================= */
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,.94);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(219,228,239,.9);
+    }
+    .header-inner{
+      width:min(1180px,calc(100% - 32px));
+      margin:auto;
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .brand img{width:48px;height:48px;object-fit:contain;border-radius:50%;flex:0 0 auto}
+    .brand-text{
+      font-weight:800;letter-spacing:.02em;color:var(--navy);
+      font-size:clamp(16px,2vw,21px);white-space:nowrap;
+    }
+    .menu-wrap{position:relative;z-index:1100}
+    .menu-button{
+      width:48px;height:48px;border:1px solid var(--line);border-radius:14px;
+      background:#fff;display:grid;place-items:center;cursor:pointer;
+      box-shadow:0 6px 18px rgba(13,43,87,.08);
+    }
+    .hamburger{width:21px;display:flex;flex-direction:column;gap:4px}
+    .hamburger span{height:2px;width:100%;background:var(--navy);border-radius:2px}
+    .menu{
+      position:absolute;top:58px;right:0;width:250px;padding:10px;
+      background:#fff;border:1px solid var(--line);border-radius:18px;
+      box-shadow:0 18px 45px rgba(13,43,87,.17);
+      opacity:0;transform:translateY(-8px);pointer-events:none;transition:.2s ease;
+      z-index:1200;
+    }
+    .menu.open{opacity:1;transform:translateY(0);pointer-events:auto}
+    .menu a{display:block;padding:11px 13px;border-radius:11px;color:var(--navy);font-weight:600;font-size:14px}
+    .menu a:hover{background:#f0f5fb}
+
+    /* ================= PAGE ================= */
+    .container{width:min(1080px,calc(100% - 32px));margin:auto}
+    main{padding:28px 0 70px}
+
+    .hero{
+      background:#fff;border:1px solid var(--line);border-radius:28px;padding:14px;
+      box-shadow:var(--shadow);
+    }
+    .hero-media{
+      width:100%;
+      overflow:hidden;
+      border-radius:20px;
+      background:#071321;
+    }
+    .hero-media img{
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      object-position:center;
+    }
+
+    .page-title{
+      padding:52px 0 26px;
+      text-align:center;
+    }
+    .eyebrow{
+      color:var(--purple);font-size:12px;font-weight:800;letter-spacing:.15em;
+      text-transform:uppercase;margin:0 auto 9px;
+    }
+    h1,h2,h3{line-height:1.2;margin:0;color:var(--navy)}
+    .page-title h1{font-size:clamp(28px,4vw,40px)}
+    .page-title .title-line{
+      width:70px;height:4px;border-radius:99px;margin:16px auto 0;
+      background:linear-gradient(90deg,var(--navy),var(--purple),var(--green));
+    }
+    .page-intro{
+      max-width:820px;margin:18px auto 0;color:var(--muted);
+      font-size:15px;line-height:1.75;text-align:center;
+    }
+
+    /* ================= 2 x 2 RESEARCH NAVIGATION ================= */
+    .research-nav{
+      width:min(860px,100%);
+      margin:0 auto 58px;
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:20px;
+    }
+    .research-card{
+      position:relative;
+      min-height:190px;
+      padding:26px 20px 23px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:0 12px 32px rgba(13,43,87,.08);
+      transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+      cursor:pointer;
+      overflow:hidden;
+    }
+    .research-card::before{
+      content:"";position:absolute;inset:0 auto auto 0;width:100%;height:4px;
+      background:linear-gradient(90deg,var(--navy),var(--purple),var(--green));
+      opacity:.9;
+    }
+    .research-card:hover,.research-card:focus-visible{
+      transform:translateY(-5px);
+      box-shadow:0 18px 42px rgba(13,43,87,.14);
+      border-color:#bfd0e5;
+      outline:none;
+    }
+    .research-icon{
+      width:72px;height:72px;margin-bottom:15px;
+      display:grid;place-items:center;border-radius:20px;
+      background:linear-gradient(145deg,#edf5ff,#f7f1fb);
+      border:1px solid #dce5f0;
+      color:var(--navy);
+    }
+    .research-icon svg{width:42px;height:42px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .research-card h2{font-size:20px;max-width:430px}
+    .research-card .jump{margin-top:9px;color:var(--purple);font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+
+    /* ================= RESEARCH AREAS ================= */
+    .research-area{
+      scroll-margin-top:100px;
+      margin:0 auto 58px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .area-heading{
+      padding:30px 34px 24px;
+      text-align:center;
+      background:linear-gradient(135deg,#f8fbff 0%,#faf7fc 100%);
+      border-bottom:1px solid var(--line);
+    }
+    .area-number{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-width:38px;height:28px;padding:0 12px;border-radius:999px;
+      background:var(--navy);color:#fff;font-size:11px;font-weight:800;
+      letter-spacing:.08em;margin-bottom:12px;
+    }
+    .area-heading h2{font-size:clamp(23px,3.2vw,32px)}
+    .area-content{padding:30px 34px 36px}
+    .area-media{
+      width:100%;
+      max-width:980px;
+      margin:0 auto;
+      border-radius:18px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e4eaf2;
+    }
+    .area-media img{
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      object-position:center;
+      background:#fff;
+    }
+    .area-media video{
+      width:100%;
+      height:auto;
+      aspect-ratio:auto;
+      display:block;
+      background:#fff;
+    }
+    .area-description{
+      max-width:900px;
+      margin:24px auto 0;
+      color:#3f4e63;
+      font-size:clamp(14px,1.6vw,16px);
+      line-height:1.8;
+      text-align:left;
+    }
+    .area-description strong{color:var(--navy)}
+    .area-note{
+      max-width:900px;
+      margin:22px auto 0;
+      padding:16px 18px;
+      border-left:4px solid var(--green);
+      background:#f6fbf7;
+      color:#42536a;
+      font-size:14px;
+      border-radius:0 12px 12px 0;
+    }
+    .back-top{
+      display:block;width:max-content;margin:22px auto 0;
+      padding:9px 17px;border-radius:999px;
+      border:1px solid #ccd9e8;background:#fff;color:var(--navy);
+      font-size:12px;font-weight:800;
+      transition:.2s ease;
+    }
+    .back-top:hover{background:var(--navy);color:#fff}
+
+    /* ================= FOOTER — MATCHES HOMEPAGE ================= */
+    .site-footer{
+      margin-top:70px;
+      background:linear-gradient(135deg,#081b38,#102b52);
+      border-top:1px solid rgba(255,255,255,.12);
+      padding:28px 0;
+    }
+    .footer-grid{
+      width:min(980px,calc(100% - 36px));margin:0 auto;
+      display:grid;grid-template-columns:minmax(0,1fr) 160px minmax(0,1fr);
+      align-items:center;column-gap:64px;
+    }
+    .footer-side{display:flex;align-items:center;justify-content:space-between;gap:38px;min-width:0}
+    .footer-side.left{justify-content:flex-start;flex-direction:column;align-items:flex-start;gap:10px}
+.footer-prism-id{font-size:9px;line-height:1.2;color:rgba(255,255,255,.72);font-weight:500;letter-spacing:.02em}
+    .footer-side.right{justify-content:flex-end}
+    .footer-icon{
+      width:52px;height:52px;display:flex;align-items:center;justify-content:center;flex:0 0 52px;
+      border-radius:12px;background:#fff;border:2px solid rgba(255,255,255,.7);
+      box-shadow:0 8px 20px rgba(0,0,0,.18);transition:transform .2s ease,box-shadow .2s ease;
+    }
+    .footer-icon:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.25)}
+    .footer-icon img{width:40px;height:40px;object-fit:contain;border-radius:8px}
+    .footer-icon svg{width:25px;height:25px;fill:var(--navy)}
+    .footer-prism-wrap{width:150px;height:150px;display:flex;align-items:center;justify-content:center;flex:0 0 150px;justify-self:center}
+    .footer-prism{width:150px;height:150px;object-fit:contain;filter:drop-shadow(0 10px 18px rgba(0,0,0,.2))}
+
+    /* Keep the card matrix as 2 x 2 on mobile too. */
+    .research-video{
+      display:block;
+      width:100%;
+      height:auto;
+      max-width:100%;
+      object-fit:contain;
+      background:#071321;
+      border-radius:18px;
+    }
+
+    @media(max-width:760px){
+      .header-inner{min-height:70px;width:min(100% - 22px,1180px)}
+      .brand img{width:43px;height:43px}
+      .brand-text{font-size:15px}
+      .menu{right:-2px;width:min(250px,calc(100vw - 24px))}
+      .container{width:min(100% - 22px,1080px)}
+      main{padding-top:16px}
+      .hero{padding:8px;border-radius:22px}
+      .hero-media{border-radius:16px}
+      .page-title{padding:44px 0 22px}
+      .research-nav{gap:12px;margin-bottom:44px}
+      .research-card{min-height:165px;padding:21px 12px 18px;border-radius:20px}
+      .research-icon{width:62px;height:62px;border-radius:17px;margin-bottom:12px}
+      .research-icon svg{width:36px;height:36px}
+      .research-card h2{font-size:17px}
+      .research-card .jump{font-size:10px}
+      .research-area{border-radius:22px;margin-bottom:42px}
+      .area-heading{padding:25px 18px 20px}
+      .area-content{padding:20px 12px 26px}
+      .area-media{border-radius:14px}
+      .area-note{font-size:13px}
+      .footer-grid{width:min(100% - 22px,560px);column-gap:18px}
+      .footer-side{gap:20px}
+      .footer-icon{width:42px;height:42px;flex-basis:42px;border-radius:10px}
+      .footer-icon img{width:32px;height:32px}
+      .footer-icon svg{width:21px;height:21px}
+      .footer-prism-wrap,.footer-prism{width:108px;height:108px;flex-basis:108px}
+    }
+    @media(max-width:430px){
+      .site-footer{padding:22px 0}
+      .footer-grid{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);column-gap:10px}
+      .footer-side{gap:9px}
+      .footer-icon{width:38px;height:38px;flex-basis:38px;border-radius:9px}
+      .footer-icon img{width:29px;height:29px}
+      .footer-icon svg{width:19px;height:19px}
+      .footer-prism-wrap,.footer-prism{width:86px;height:86px;flex-basis:86px}
+      .brand-text{white-space:normal;line-height:1.15;max-width:185px}
+      .header-inner{gap:8px}
+      .menu-button{width:44px;height:44px}
+      .research-nav{gap:9px}
+      .research-card{min-height:148px;padding:18px 8px 15px}
+      .research-icon{width:55px;height:55px;border-radius:15px}
+      .research-icon svg{width:31px;height:31px}
+      .research-card h2{font-size:15px;line-height:1.22}
+      .research-card .jump{margin-top:7px;font-size:9px}
+    }
+  
+/* Unified PRISM Lab header styling: matches footer */
+.site-header{
+  background:linear-gradient(135deg,#081b38,#102b52) !important;
+  border-bottom:1px solid rgba(255,255,255,.12) !important;
+  backdrop-filter:blur(14px);
+}
+.site-header .brand-text{color:#fff !important;}
+.site-header .menu-button{
+  background:rgba(255,255,255,.10) !important;
+  border-color:rgba(255,255,255,.28) !important;
+  box-shadow:0 6px 18px rgba(0,0,0,.18) !important;
+}
+.site-header .hamburger span{background:#fff !important;}
+
+</style>
+<style>
+/* FINAL STANDARD PRISM FOOTER — identical horizontal layout on desktop, tablet and mobile */
+.site-footer{
+  margin-top:70px;
+  background:linear-gradient(135deg,#081b38,#102b52);
+  border-top:1px solid rgba(255,255,255,.12);
+  padding:22px 0 18px;
+  width:100%;
+  box-sizing:border-box;
+}
+.site-footer .footer-grid{
+  width:min(1080px,calc(100% - 32px));
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  align-items:center;
+  column-gap:clamp(12px,4vw,52px);
+}
+.site-footer .footer-side{
+  min-width:0;
+  display:flex;
+  align-items:center;
+}
+.site-footer .footer-left{
+  justify-content:flex-start;
+  flex-direction:row;
+  flex-wrap:wrap;
+  column-gap:clamp(8px,1.8vw,18px);
+  row-gap:3px;
+}
+.site-footer .footer-right{
+  justify-content:flex-end;
+  flex-direction:row;
+  gap:clamp(8px,1.8vw,18px);
+}
+.site-footer .footer-icon{
+  width:clamp(25px,3.2vw,34px) !important;
+  height:clamp(25px,3.2vw,34px) !important;
+  min-width:clamp(25px,3.2vw,34px) !important;
+  min-height:clamp(25px,3.2vw,34px) !important;
+  flex:0 0 clamp(25px,3.2vw,34px) !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 !important;
+  margin:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  transition:transform .2s ease,opacity .2s ease;
+}
+.site-footer .footer-logo img{
+  width:clamp(25px,3.2vw,34px) !important;
+  height:clamp(25px,3.2vw,34px) !important;
+  object-fit:contain !important;
+  border-radius:50% !important;
+  display:block !important;
+}
+.site-footer .footer-social svg{
+  width:clamp(19px,2.6vw,28px) !important;
+  height:clamp(19px,2.6vw,28px) !important;
+  display:block !important;
+  fill:#fff !important;
+}
+.site-footer .footer-icon:hover{transform:translateY(-2px);opacity:.9}
+.site-footer .footer-prism-wrap{
+  width:clamp(68px,9vw,104px) !important;
+  height:clamp(68px,9vw,104px) !important;
+  flex:0 0 clamp(68px,9vw,104px) !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  justify-self:center !important;
+}
+.site-footer .footer-prism{
+  width:clamp(60px,8vw,94px) !important;
+  height:clamp(60px,8vw,94px) !important;
+  object-fit:contain !important;
+  display:block !important;
+  filter:drop-shadow(0 8px 14px rgba(0,0,0,.18));
+}
+.site-footer .footer-prism-id{
+  flex-basis:100% !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  color:rgba(255,255,255,.72) !important;
+  font-size:8px !important;
+  line-height:1 !important;
+  font-weight:500 !important;
+  letter-spacing:.02em !important;
+  text-align:left !important;
+}
+/* Keep exactly the same three-column footer structure at every screen size. */
+@media(max-width:760px){
+  .site-footer{padding:18px 0 14px}
+  .site-footer .footer-grid{
+    width:calc(100% - 18px);
+    grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+    column-gap:8px;
+    row-gap:0;
+  }
+  .site-footer .footer-left{justify-content:flex-start;align-items:center;column-gap:7px}
+  .site-footer .footer-right{justify-content:flex-end;align-items:center;gap:7px}
+  .site-footer .footer-prism-id{text-align:left !important}
+}
+@media(max-width:380px){
+  .site-footer .footer-grid{width:calc(100% - 12px);column-gap:5px}
+  .site-footer .footer-left,.site-footer .footer-right{gap:5px}
+  .site-footer .footer-icon{width:23px !important;height:23px !important;min-width:23px !important;min-height:23px !important;flex-basis:23px !important}
+  .site-footer .footer-logo img{width:23px !important;height:23px !important}
+  .site-footer .footer-social svg{width:18px !important;height:18px !important}
+  .site-footer .footer-prism-wrap{width:62px !important;height:62px !important;flex-basis:62px !important}
+  .site-footer .footer-prism{width:56px !important;height:56px !important}
+}
+</style>
+<style id="prism-shared-header-footer">
+:root{
+      --navy:#0d2b57;
+      --navy-2:#173d73;
+      --blue:#2459a6;
+      --green:#87b98b;
+      --green-soft:#dcefe1;
+      --purple:#704a98;
+      --magenta:#a34d82;
+      --ink:#162238;
+      --muted:#5e6d82;
+      --line:#dbe4ef;
+      --surface:#ffffff;
+      --bg:#f7faff;
+      --shadow:0 14px 36px rgba(13,43,87,.10);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#fff 0%,var(--bg) 100%);
+      color:var(--ink);
+      font-family:"Inter",Arial,sans-serif;
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    button{font:inherit}
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,.94);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(219,228,239,.9);
+    }
+    .header-inner{
+      width:min(1180px,calc(100% - 32px));
+      margin:auto;
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+    .brand img{
+      width:48px;height:48px;object-fit:contain;border-radius:50%;
+      flex:0 0 auto;
+    }
+    .brand-text{
+      font-weight:800;
+      letter-spacing:.02em;
+      color:var(--navy);
+      font-size:clamp(16px,2vw,21px);
+      white-space:nowrap;
+    }
+    .menu-wrap{position:relative}
+    .menu-button{
+      width:48px;height:48px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      box-shadow:0 6px 18px rgba(13,43,87,.08);
+    }
+    .hamburger{width:21px;display:flex;flex-direction:column;gap:4px}
+    .hamburger span{height:2px;width:100%;background:var(--navy);border-radius:2px}
+    .menu{
+      position:absolute;
+      top:58px;
+      right:0;
+      width:250px;
+      padding:10px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow:0 18px 45px rgba(13,43,87,.17);
+      opacity:0;
+      transform:translateY(-8px);
+      pointer-events:none;
+      transition:.2s ease;
+    }
+    .menu.open{opacity:1;transform:translateY(0);pointer-events:auto}
+    .menu a{
+      display:block;
+      padding:11px 13px;
+      border-radius:11px;
+      color:var(--navy);
+      font-weight:600;
+      font-size:14px;
+    }
+    .menu a:hover{background:#f0f5fb}
+    .container{width:min(980px,calc(100% - 32px));margin:auto}
+    main{padding:28px 0 70px}
+    .hero{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:14px;
+      box-shadow:var(--shadow);
+    }
+    .slide-stage{
+      position:relative;
+      width:100%;
+      aspect-ratio:4/3;
+      border-radius:20px;
+      overflow:hidden;
+      background:#071321;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .slide{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      opacity:0;
+      transition:opacity 1s ease-in-out;
+      padding:8px;
+    }
+    .slide.active{opacity:1}
+    .slide img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      object-position:center;
+    }
+    .slide-dots{
+      display:flex;
+      justify-content:center;
+      gap:7px;
+      margin:12px 0 2px;
+    }
+    .dot{width:7px;height:7px;border-radius:50%;background:#c5d0de;transition:.2s}
+    .dot.active{background:var(--purple);width:20px;border-radius:10px}
+    .section{padding:58px 0 0}
+    .section:first-of-type{text-align:center}
+    .eyebrow{
+      color:var(--purple);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+      margin:0 auto 10px;
+      text-align:center;
+    }
+    h1,h2,h3{line-height:1.2;margin:0;color:var(--navy)}
+    h1{font-size:clamp(25px,4vw,38px);margin-bottom:18px;text-align:center}
+    .description{
+      font-size:clamp(15px,1.7vw,17px);
+      color:#3f4e63;
+      max-width:920px;
+      margin:0 auto;
+      text-align:left;
+    }
+    .pi-section{
+      text-align:center;
+      width:100%;
+      margin:58px auto 0;
+      padding:32px 24px;
+      background:linear-gradient(135deg,#edf5ff 0%,#f7f1fb 100%);
+      border:1px solid #d8e2ef;
+      border-radius:24px;
+    }
+    .pi-frame{
+      width:220px;height:220px;
+      margin:0 auto 20px;
+      padding:6px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--navy),var(--purple),var(--green));
+      box-shadow:0 14px 34px rgba(13,43,87,.18);
+    }
+    .pi-frame img{
+      width:100%;height:100%;object-fit:cover;object-position:center top;
+      border-radius:50%;
+      border:5px solid #fff;
+    }
+    .pi-name{font-size:24px;font-weight:800}
+    .pi-role{color:var(--muted);font-weight:600;margin-top:5px}
+    .iitg-mini{
+      width:56px;height:56px;object-fit:contain;
+      margin:10px auto 0;
+      border-radius:50%;
+      border:1px solid var(--line);
+      background:#fff;
+    }
+    .cards{
+      width:min(980px,100%);
+      margin:42px auto 0;
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:20px;
+    }
+    .card{
+      background:#fff;
+      display:flex;
+      flex-direction:column;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:28px 28px 24px;
+      text-align:center;
+      box-shadow:0 12px 32px rgba(13,43,87,.08);
+      transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+    }
+    .card:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(13,43,87,.13);border-color:#bfd0e5}
+    .card-icon{width:106px;height:106px;margin:0 auto 16px;object-fit:contain;display:block;}
+    .card h3{font-size:23px;margin-bottom:9px}
+    .card p{margin:0 auto 18px;color:var(--muted);max-width:610px}
+    .pill{
+      display:inline-flex;
+      margin-top:auto;
+      align-items:center;
+      justify-content:center;
+      min-width:108px;
+      padding:9px 18px;
+      border-radius:999px;
+      background:var(--navy);
+      color:#fff;
+      font-weight:700;
+      font-size:13px;
+      transition:.2s;
+    }
+    .pill:hover{background:var(--purple)}
+    .connect{
+      margin:54px auto 0;
+      width:min(760px,100%);
+      text-align:center;
+      background:linear-gradient(135deg,#edf5ff 0%,#f7f1fb 100%);
+      border:1px solid #d8e2ef;
+      border-radius:24px;
+      padding:30px 24px;
+      box-shadow:0 8px 20px rgba(13,43,87,.14);
+    }
+    .connect h2{font-size:25px;margin-bottom:8px}
+    .connect p{color:var(--muted);margin:0 auto 18px}
+    .connect-btn{
+      display:inline-flex;
+      padding:11px 22px;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--navy),var(--purple));
+      color:#fff;font-weight:800;
+      box-shadow:0 10px 24px rgba(112,74,152,.18);
+    }
+    .site-footer{
+      margin-top:70px;
+      background:linear-gradient(135deg,#081b38,#102b52);
+      border-top:1px solid rgba(255,255,255,.12);
+      padding:28px 0;
+    }
+    .footer-grid{
+      width:min(980px,calc(100% - 36px));
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 160px minmax(0,1fr);
+      align-items:center;
+      column-gap:64px;
+    }
+    .footer-side{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:38px;
+      min-width:0;
+    }
+    .footer-side.left{justify-content:flex-start}
+    .footer-side.left{justify-content:flex-start;flex-direction:row;flex-wrap:wrap;gap:18px}
+    .footer-prism-id{flex-basis:100%;font-size:9px;line-height:1.2;color:rgba(255,255,255,.72);font-weight:500;letter-spacing:.02em}
+    .footer-side.right{justify-content:flex-end}
+    .footer-icon{
+      width:52px;height:52px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 52px;
+      border-radius:12px;
+      background:#fff;
+      border:2px solid rgba(255,255,255,.7);
+      box-shadow:0 8px 20px rgba(0,0,0,.18);
+      transition:transform .2s ease,box-shadow .2s ease;
+    }
+    .footer-icon:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.25)}
+    .footer-icon img{width:40px;height:40px;object-fit:contain;border-radius:8px}
+    .footer-icon svg{width:25px;height:25px;fill:var(--navy)}
+    .footer-prism-wrap{
+      width:150px;height:150px;
+      display:flex;align-items:center;justify-content:center;
+      flex:0 0 150px;
+      justify-self:center;
+    }
+    .footer-prism{
+      width:150px;height:150px;
+      object-fit:contain;
+      filter:drop-shadow(0 10px 18px rgba(0,0,0,.2));
+    }
+    @media(max-width:760px){
+      .footer-grid{width:min(100% - 22px,560px);column-gap:18px}
+      .footer-side{gap:20px}
+      .footer-icon{width:42px;height:42px;flex-basis:42px;border-radius:10px}
+      .footer-icon img{width:32px;height:32px}
+      .footer-icon svg{width:21px;height:21px}
+      .footer-prism-wrap,.footer-prism{width:108px;height:108px;flex-basis:108px}
+    }
+    @media(max-width:430px){
+      .site-footer{padding:22px 0}
+      .footer-grid{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);column-gap:10px}
+      .footer-side{gap:9px}
+      .footer-icon{width:38px;height:38px;flex-basis:38px;border-radius:9px}
+      .footer-icon img{width:29px;height:29px}
+      .footer-icon svg{width:19px;height:19px}
+      .footer-prism-wrap,.footer-prism{width:86px;height:86px;flex-basis:86px}
+    }
+    @media(max-width:760px){
+      .cards{grid-template-columns:1fr;}
+      .header-inner{min-height:70px;width:min(100% - 22px,1180px)}
+      .brand img{width:43px;height:43px}
+      .brand-text{font-size:15px}
+      .menu{right:-2px;width:min(250px,calc(100vw - 24px))}
+      .container{width:min(100% - 22px,980px)}
+      main{padding-top:16px}
+      .hero{padding:8px;border-radius:22px}
+      .slide-stage{aspect-ratio:4/3;border-radius:16px}
+      .section{padding-top:46px}
+      .pi-frame{width:185px;height:185px}
+      .card{padding:24px 18px 22px}
+      .card-icon{width:92px;height:92px}
+    }
+    @media(max-width:430px){
+      .brand-text{white-space:normal;line-height:1.15;max-width:185px}
+      .header-inner{gap:8px}
+      .menu-button{width:44px;height:44px}
+      .slide-stage{aspect-ratio:1/1}
+      .description{text-align:left}
+    }
+  
+/* Unified PRISM Lab header styling: matches footer */
+.site-header{
+  background:linear-gradient(135deg,#081b38,#102b52) !important;
+  border-bottom:1px solid rgba(255,255,255,.12) !important;
+  backdrop-filter:blur(14px);
+}
+.site-header .brand-text{color:#fff !important;}
+.site-header .menu-button{
+  background:rgba(255,255,255,.10) !important;
+  border-color:rgba(255,255,255,.28) !important;
+  box-shadow:0 6px 18px rgba(0,0,0,.18) !important;
+}
+.site-header .hamburger span{background:#fff !important;}
+
+
+/* Continuous single-line collaborators text — no box */
+.collaborators-strip{
+  width:100%;
+  margin:38px 0 0;
+  overflow:hidden;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  color:#6d28a8;
+  padding:8px 0;
+  box-shadow:none;
+}
+.collaborators-track{
+  display:flex;
+  width:max-content;
+  white-space:nowrap;
+  animation:collaborators-scroll 34s linear infinite;
+}
+.collaborators-track > span{
+  display:inline-block;
+  padding-right:80px;
+  font-size:clamp(18px,1.55vw,24px);
+  font-weight:700;
+  letter-spacing:.01em;
+  color:#6d28a8;
+}
+.collaborators-track .collab-label{display:inline !important;color:#081b38;font-weight:800;}
+@keyframes collaborators-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.collaborators-track{animation:none;width:100%;overflow:auto;}}
+
+
+/* Keep the slideshow frame identical across mobile, laptop and desktop */
+.slide-stage{aspect-ratio:4/3 !important;}
+''
+
+/* FINAL STANDARD PRISM FOOTER — identical horizontal layout on desktop, tablet and mobile */
+.site-footer{
+  margin-top:70px;
+  background:linear-gradient(135deg,#081b38,#102b52);
+  border-top:1px solid rgba(255,255,255,.12);
+  padding:22px 0 18px;
+  width:100%;
+  box-sizing:border-box;
+}
+.site-footer .footer-grid{
+  width:min(1080px,calc(100% - 32px));
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  align-items:center;
+  column-gap:clamp(12px,4vw,52px);
+}
+.site-footer .footer-side{
+  min-width:0;
+  display:flex;
+  align-items:center;
+}
+.site-footer .footer-left{
+  justify-content:flex-start;
+  flex-direction:row;
+  flex-wrap:wrap;
+  column-gap:clamp(8px,1.8vw,18px);
+  row-gap:3px;
+}
+.site-footer .footer-right{
+  justify-content:flex-end;
+  flex-direction:row;
+  gap:clamp(8px,1.8vw,18px);
+}
+.site-footer .footer-icon{
+  width:clamp(25px,3.2vw,34px) !important;
+  height:clamp(25px,3.2vw,34px) !important;
+  min-width:clamp(25px,3.2vw,34px) !important;
+  min-height:clamp(25px,3.2vw,34px) !important;
+  flex:0 0 clamp(25px,3.2vw,34px) !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 !important;
+  margin:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  transition:transform .2s ease,opacity .2s ease;
+}
+.site-footer .footer-logo img{
+  width:clamp(25px,3.2vw,34px) !important;
+  height:clamp(25px,3.2vw,34px) !important;
+  object-fit:contain !important;
+  border-radius:50% !important;
+  display:block !important;
+}
+.site-footer .footer-social svg{
+  width:clamp(19px,2.6vw,28px) !important;
+  height:clamp(19px,2.6vw,28px) !important;
+  display:block !important;
+  fill:#fff !important;
+}
+.site-footer .footer-icon:hover{transform:translateY(-2px);opacity:.9}
+.site-footer .footer-prism-wrap{
+  width:clamp(68px,9vw,104px) !important;
+  height:clamp(68px,9vw,104px) !important;
+  flex:0 0 clamp(68px,9vw,104px) !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  justify-self:center !important;
+}
+.site-footer .footer-prism{
+  width:clamp(60px,8vw,94px) !important;
+  height:clamp(60px,8vw,94px) !important;
+  object-fit:contain !important;
+  display:block !important;
+  filter:drop-shadow(0 8px 14px rgba(0,0,0,.18));
+}
+.site-footer .footer-prism-id{
+  flex-basis:100% !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  color:rgba(255,255,255,.72) !important;
+  font-size:8px !important;
+  line-height:1 !important;
+  font-weight:500 !important;
+  letter-spacing:.02em !important;
+  text-align:left !important;
+}
+/* Keep exactly the same three-column footer structure at every screen size. */
+@media(max-width:760px){
+  .site-footer{padding:18px 0 14px}
+  .site-footer .footer-grid{
+    width:calc(100% - 18px);
+    grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+    column-gap:8px;
+    row-gap:0;
+  }
+  .site-footer .footer-left{justify-content:flex-start;align-items:center;column-gap:7px}
+  .site-footer .footer-right{justify-content:flex-end;align-items:center;gap:7px}
+  .site-footer .footer-prism-id{text-align:left !important}
+}
+@media(max-width:380px){
+  .site-footer .footer-grid{width:calc(100% - 12px);column-gap:5px}
+  .site-footer .footer-left,.site-footer .footer-right{gap:5px}
+  .site-footer .footer-icon{width:23px !important;height:23px !important;min-width:23px !important;min-height:23px !important;flex-basis:23px !important}
+  .site-footer .footer-logo img{width:23px !important;height:23px !important}
+  .site-footer .footer-social svg{width:18px !important;height:18px !important}
+  .site-footer .footer-prism-wrap{width:62px !important;height:62px !important;flex-basis:62px !important}
+  .site-footer .footer-prism{width:56px !important;height:56px !important}
+}
+
+.site-footer .footer-clean-logo{
+  width:clamp(25px,3.2vw,34px)!important;
+  height:clamp(25px,3.2vw,34px)!important;
+  display:block;
+  overflow:visible;
+}
+@media(max-width:380px){
+  .site-footer .footer-clean-logo{
+    width:23px!important;
+    height:23px!important;
+  }
+}
+
+.site-footer .footer-iitg-official{
+  width:clamp(25px,3.2vw,34px)!important;
+  height:clamp(25px,3.2vw,34px)!important;
+  object-fit:contain!important;
+  border-radius:50%!important;
+  display:block!important;
+}
+.site-footer .footer-prism{
+  border-radius:50%!important;
+  background:transparent!important;
+  object-fit:contain!important;
+}
+@media(max-width:380px){
+  .site-footer .footer-iitg-official{
+    width:23px!important;height:23px!important;
+  }
+}
+
+.site-footer .footer-left .footer-iitg-official{
+  width:clamp(25px,3.2vw,34px)!important;
+  height:clamp(25px,3.2vw,34px)!important;
+  min-width:clamp(25px,3.2vw,34px)!important;
+  min-height:clamp(25px,3.2vw,34px)!important;
+  flex:0 0 clamp(25px,3.2vw,34px)!important;
+  padding:3px!important;
+  object-fit:contain!important;
+  border-radius:12px!important;
+  background:#fff!important;
+  border:2px solid rgba(255,255,255,.85)!important;
+  box-shadow:0 5px 14px rgba(0,0,0,.16)!important;
+  display:block!important;
+}
+@media(max-width:760px){
+  .site-footer .footer-left .footer-iitg-official{
+    border-radius:10px!important;
+    padding:3px!important;
+  }
+}
+@media(max-width:380px){
+  .site-footer .footer-left .footer-iitg-official{
+    width:23px!important;height:23px!important;
+    min-width:23px!important;min-height:23px!important;
+    flex-basis:23px!important;
+    border-radius:9px!important;
+    padding:2px!important;
+  }
+}
+
+/* FINAL footer mobile/GitHub stability correction */
+.site-footer{
+  position:relative !important;
+  clear:both !important;
+  display:block !important;
+  overflow:hidden !important;
+  z-index:1 !important;
+}
+.site-footer .footer-grid{position:relative !important;}
+.site-footer .footer-left .footer-iitg-official{
+  display:block !important;
+  overflow:hidden !important;
+  font-size:0 !important;
+  line-height:0 !important;
+  text-indent:-9999px !important;
+}
+.site-footer img{max-width:100%;}
+</style>
+</head>
+<body>
+<header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="PRISM Lab home">
+        <img src="index-assets/header-prism-logo.png" alt="PRISM Lab logo">
+        <span class="brand-text">PRISM LAB | IIT GUWAHATI</span>
+      </a>
+
+      <div class="menu-wrap">
+        <button class="menu-button" id="menuButton" aria-label="Open navigation menu" aria-expanded="false">
+          <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <nav class="menu" id="menu" aria-label="Main navigation">
+<a href="research.html" target="_blank" rel="noopener">Research</a>
+<a href="publication.html" target="_blank" rel="noopener">Publication</a>
+<a href="conference.html" target="_blank" rel="noopener">Conference</a>
+<a href="people.html" target="_blank" rel="noopener">People</a>
+<a href="instruments-facilities.html" target="_blank" rel="noopener">Instruments and Facilities</a>
+<a href="News and Announcements.html" target="_blank" rel="noopener">News and Announcements</a>
+<a href="awards-patents.html" target="_blank" rel="noopener">Awards and Patents</a>
+<a href="gallery.html" target="_blank" rel="noopener">Gallery</a>
+<a href="contact.html" target="_blank" rel="noopener">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+<main id="top">
+<div class="container">
+<!-- 1st uploaded image: research hero -->
+<section aria-label="PRISM Lab research hero image" class="hero">
+<div class="hero-media">
+<img alt="PRISM Lab research molecular illustration" src="research-hero.jpg"/>
+</div>
+</section>
+<section aria-labelledby="research-title" class="page-title">
+<p class="eyebrow">PRISM Lab</p>
+<h1 id="research-title">Research</h1>
+</section>
+<!-- Four clickable research areas in a permanent 2 x 2 matrix -->
+<nav aria-label="Research areas" class="research-nav">
+<a aria-label="Go to Biomaterials for advanced drug delivery" class="research-card" href="#biomaterials">
+<span aria-hidden="true" class="research-icon">
+<svg viewbox="0 0 48 48"><circle cx="15" cy="15" r="5"></circle><circle cx="33" cy="12" r="4"></circle><circle cx="30" cy="32" r="6"></circle><circle cx="13" cy="35" r="3"></circle><path d="M19 16l10-3M18 19l8 10M16 20l-2 12M26 15l3 11M16 34l8-2"></path></svg>
+</span>
+<h2>Biomaterials for Advanced Drug Delivery</h2>
+<span class="jump">Explore research ↓</span>
+</a>
+<a aria-label="Go to Tissue Engineering for in vitro tumor models" class="research-card" href="#tissue-engineering">
+<span aria-hidden="true" class="research-icon">
+<svg viewbox="0 0 48 48"><path d="M10 30c0-8 6-14 14-14s14 6 14 14-6 10-14 10-14-2-14-10Z"></path><path d="M17 28c2-5 5-7 9-7 5 0 8 3 9 8M20 34c2-3 5-5 9-5 3 0 5 1 7 3"></path><circle cx="20" cy="27" r="2"></circle><circle cx="29" cy="25" r="2"></circle></svg>
+</span>
+<h2>Tissue Engineering for <em>In Vitro</em> Tumor Models</h2>
+<span class="jump">Explore research ↓</span>
+</a>
+<a aria-label="Go to Protein Engineering for Cancer Therapeutics" class="research-card" href="#protein-engineering">
+<span aria-hidden="true" class="research-icon">
+<svg viewbox="0 0 48 48"><path d="M12 12c8-5 16 1 14 8-2 8 7 9 10 3 3-6 1-10-2-11"></path><path d="M36 36c-8 5-16-1-14-8 2-8-7-9-10-3-3 6-1 10 2 11"></path><path d="M18 18l12 12M30 18L18 30"></path></svg>
+</span>
+<h2>Protein Engineering for Cancer Therapeutics</h2>
+<span class="jump">Explore research ↓</span>
+</a>
+<a aria-label="Go to Molecular Docking and Protein Simulations" class="research-card" href="#molecular-docking">
+<span aria-hidden="true" class="research-icon">
+<svg viewbox="0 0 48 48"><circle cx="17" cy="17" r="6"></circle><circle cx="32" cy="12" r="4"></circle><circle cx="31" cy="31" r="7"></circle><path d="M22 15l6-2M21 21l6 7M16 23l10 7M35 16l-3 8"></path><path d="M8 38h32"></path></svg>
+</span>
+<h2>Molecular Docking and Protein Simulations</h2>
+<span class="jump">Explore research ↓</span>
+</a>
+</nav>
+<!-- Research area 1 -->
+<section aria-labelledby="biomaterials-title" class="research-area" id="biomaterials">
+<header class="area-heading">
+<span class="area-number">01</span>
+<h2 id="biomaterials-title">Biomaterials for Advanced Drug Delivery</h2>
+</header>
+<div class="area-content">
+<p class="area-description"><strong>Research focus:</strong> The figure presents a biomaterials-based strategy for advanced drug delivery in which an upconverting nanoparticle is shown converting near-infrared (NIR) excitation into UV/visible emission. The emitted light is used to activate protoporphyrin IX (PPIX), leading to reactive oxygen species (ROS) generation. The accompanying absorbance/emission plots and nanoparticle image visually support the optical and materials characterization of this platform.</p>
+<div class="area-media">
+<img alt="Biomaterials for advanced drug delivery research figure" loading="lazy" src="biomaterials-drug-delivery.jpg"/>
+</div>
+<a class="back-top" href="#top">Back to research areas ↑</a>
+</div>
+</section>
+<!-- Research area 2 -->
+<section aria-labelledby="tissue-title" class="research-area" id="tissue-engineering">
+<header class="area-heading">
+<span class="area-number">02</span>
+<h2 id="tissue-title">Tissue Engineering for <em>In Vitro</em> Tumor Models</h2>
+</header>
+<div class="area-content">
+<p class="area-description"><strong>Research focus:</strong> The visuals show the development of three-dimensional breast tumor models using tumor spheroids, collagen-based environments, and microfluidic devices. These engineered systems provide progressively more structured settings for studying tumor behavior in vitro, while the fluorescent microscopy image illustrates the cellular organization within a 3D tumor model.</p>
+<div class="area-media">
+<video aria-label="Tissue Engineering for in vitro tumor models research video" class="research-video" controls="" playsinline="" preload="metadata">
+<source src="tissue-engineering.mp4" type="video/mp4"/>
+                Your browser does not support HTML5 video.
+              </video>
+</div>
+<a class="back-top" href="#top">Back to research areas ↑</a>
+</div>
+</section>
+<!-- Research area 3 -->
+<section aria-labelledby="protein-title" class="research-area" id="protein-engineering">
+<header class="area-heading">
+<span class="area-number">03</span>
+<h2 id="protein-title">Protein Engineering for Cancer Therapeutics</h2>
+</header>
+<div class="area-content">
+<p class="area-description"><strong>Research focus:</strong> The figure contrasts passive and targeted delivery to highlight the goal of directing therapeutic molecules toward tumor tissue while limiting nonspecific accumulation in healthy tissue. The lower molecular and fluorescence images complement this concept by showing protein-level visualization and biological localization relevant to cancer therapeutics.</p>
+<div class="area-media">
+<video aria-label="Protein Engineering for Cancer Therapeutics research video" class="research-video" controls="" playsinline="" preload="metadata">
+<source src="protein-engineering.mp4" type="video/mp4"/>
+                Your browser does not support HTML5 video.
+              </video>
+</div>
+<a class="back-top" href="#top">Back to research areas ↑</a>
+</div>
+</section>
+<!-- Research area 4: uploaded video -->
+<section aria-labelledby="docking-title" class="research-area" id="molecular-docking">
+<header class="area-heading">
+<span class="area-number">04</span>
+<h2 id="docking-title">Molecular Docking and Protein Simulations</h2>
+</header>
+<div class="area-content">
+<p class="area-description"><strong>Research focus:</strong> The video illustrates computational analysis of protein structure and molecular behavior, with views of a 3D protein model, predicted confidence across positions, molecular visualization, and secondary-structure annotations. Together, these views demonstrate how molecular docking and protein simulations can be used to investigate protein structure, interactions, and stability relevant to therapeutic design.</p>
+<div class="area-media">
+<video aria-label="Molecular Docking and Protein Simulations research video" controls="" playsinline="" preload="metadata">
+<source src="molecular-docking.mp4" type="video/mp4"/>
+              Your browser does not support HTML5 video.
+            </video>
+</div>
+<a class="back-top" href="#top">Back to research areas ↑</a>
+</div>
+</section>
+</div>
+</main>
+<footer class="site-footer" aria-label="PRISM Lab footer links">
+  <div class="footer-grid">
+    <div class="footer-side footer-left">
+      <a class="footer-icon footer-logo" href="https://www.iitg.ac.in/" target="_blank" rel="noopener" aria-label="IIT Guwahati main website"><img class="footer-clean-logo footer-iitg-official" src="index-assets/footer-iitg-logo.jpg" alt="IIT Guwahati"></a>
+      <a class="footer-icon footer-logo" href="https://www.iitg.ac.in/chemeng/" target="_blank" rel="noopener" aria-label="IIT Guwahati Chemical Engineering"><svg class="footer-clean-logo" viewBox="0 0 64 64" aria-hidden="true">
+  <circle cx="32" cy="32" r="30" fill="#fff"/>
+  <g fill="none" stroke="#081b38" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="18" cy="43" r="7"/>
+    <circle cx="46" cy="43" r="7"/>
+    <path d="M18 43l9-15h10l9 15M27 28l-5-8M27 28l7 7M37 28l-5 0M34 35h8"/>
+    <path d="M20 18l4-4 4 4-4 4zM45 14l4 4-4 4-4-4z"/>
+  </g>
+  <text x="32" y="57" text-anchor="middle" font-family="Arial,sans-serif" font-size="5.5" font-weight="800" fill="#081b38">CHEM ENG</text>
+</svg></a>
+      <div class="footer-prism-id">@PRISMLAB2026</div>
+    </div>
+    <div class="footer-prism-wrap"><img class="footer-prism" src="index-assets/footer-prism-logo.png" alt="PRISM Lab"></div>
+    <div class="footer-side footer-right">
+      <a class="footer-icon footer-social" href="mailto:shro3435@iitg.ac.in" aria-label="Email Principal Investigator"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3V5Zm2 2v.5l7 5 7-5V7l-7 5-7-5Z"/></svg></a>
+      <a class="footer-icon footer-social" href="https://in.linkedin.com/in/shambojit-roy-84226b91" target="_blank" rel="noopener" aria-label="Principal Investigator LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 3A2.2 2.2 0 1 1 5.2 7.4 2.2 2.2 0 1 1 5.2 3ZM3.4 9h3.6v11H3.4V9Zm5.8 0h3.4v1.5h.1c.5-.9 1.7-1.9 3.5-1.9 3.7 0 4.4 2.4 4.4 5.6V20H17v-5.1c0-1.2 0-2.8-1.8-2.8s-2.1 1.3-2.1 2.7V20H9.2V9Z"/></svg></a>
+    </div>
+  </div>
+</footer>
+<script>
+    const menuButton = document.getElementById('menuButton');
+    const menu = document.getElementById('menu');
+
+    menuButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = menu.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menu.contains(e.target) && !menuButton.contains(e.target)) {
+        menu.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.querySelectorAll('.research-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const target = document.querySelector(card.getAttribute('href'));
+        if (target) {
+          setTimeout(() => target.querySelector('.area-heading')?.focus?.(), 350);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
