@@ -1056,6 +1056,156 @@
 }
 .site-footer img{max-width:100%;}
 </style>
+
+<style id="research-layout-update">
+/* ===== UPDATED RESEARCH AREA PRESENTATION ===== */
+.research-area{
+  border-radius:28px;
+  overflow:hidden;
+  margin:0 auto 58px;
+  border:1px solid #dbe4ef;
+  box-shadow:0 14px 36px rgba(13,43,87,.10);
+}
+
+/* Alternating professional block backgrounds */
+.research-area:nth-of-type(even){
+  background:#fff;
+}
+.research-area:nth-of-type(odd){
+  background:linear-gradient(135deg,#fbfeff 0%,#f6fbff 48%,#faf7ff 100%);
+}
+
+/* Keep headings clean and integrated */
+.research-area .area-heading{
+  background:transparent;
+  border-bottom:1px solid rgba(219,228,239,.75);
+  padding:30px 34px 24px;
+}
+.research-area .area-content{
+  padding:34px;
+}
+
+/* Each research item becomes an image + description row */
+.research-area .area-content{
+  display:grid;
+  grid-template-columns:minmax(280px,42%) minmax(0,1fr);
+  gap:34px;
+  align-items:center;
+}
+
+/* Image/media on the left for odd research blocks */
+.research-area:nth-of-type(even) .area-media{
+  grid-column:1;
+  grid-row:1;
+}
+
+/* Description on the right */
+.research-area:nth-of-type(even) .area-description{
+  grid-column:2;
+  grid-row:1;
+  margin:0;
+}
+
+/* Image/media on the right for even research blocks */
+.research-area:nth-of-type(odd) .area-media{
+  grid-column:2;
+  grid-row:1;
+}
+
+/* Description on the left */
+.research-area:nth-of-type(odd) .area-description{
+  grid-column:1;
+  grid-row:1;
+  margin:0;
+}
+
+/* Professional media treatment */
+.research-area .area-media{
+  width:100%;
+  max-width:none;
+  margin:0;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid #dbe4ef;
+  background:#fff;
+  box-shadow:0 10px 26px rgba(13,43,87,.08);
+}
+.research-area .area-media img,
+.research-area .area-media video{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  background:#fff;
+}
+
+/* Make descriptions feel like polished research copy */
+.research-area .area-description{
+  max-width:none;
+  color:#3f4e63;
+  font-size:clamp(14px,1.45vw,16px);
+  line-height:1.85;
+  text-align:left;
+}
+.research-area .area-description strong{
+  display:block;
+  color:#0d2b57;
+  font-size:15px;
+  margin-bottom:7px;
+  letter-spacing:.01em;
+}
+
+/* Back button spans the full row */
+.research-area .back-top{
+  grid-column:1 / -1;
+  grid-row:2;
+  margin:4px auto 0;
+}
+
+/* Mobile: image first, description below for readability */
+@media(max-width:760px){
+  .research-area .area-content{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+    padding:22px 16px 28px;
+  }
+  .research-area:nth-of-type(even) .area-media,
+  .research-area:nth-of-type(odd) .area-media,
+  .research-area:nth-of-type(even) .area-description,
+  .research-area:nth-of-type(odd) .area-description{
+    order:initial;
+  }
+  .research-area .area-media{
+    order:1 !important;
+    width:100%;
+  }
+  .research-area .area-description{
+    order:2 !important;
+    width:100%;
+  }
+  .research-area .back-top{
+    order:3 !important;
+    margin-top:0;
+  }
+  .research-area .area-heading{
+    padding:25px 18px 20px;
+  }
+}
+
+/* Very small screens */
+@media(max-width:430px){
+  .research-area{
+    border-radius:22px;
+    margin-bottom:42px;
+  }
+  .research-area .area-content{
+    padding:18px 12px 24px;
+    gap:18px;
+  }
+}
+</style>
+
 </head>
 <body>
 <header class="site-header">
@@ -1129,7 +1279,6 @@
 <!-- Research area 1 -->
 <section aria-labelledby="biomaterials-title" class="research-area" id="biomaterials">
 <header class="area-heading">
-<span class="area-number">01</span>
 <h2 id="biomaterials-title">Biomaterials for Advanced Drug Delivery</h2>
 </header>
 <div class="area-content">
@@ -1143,7 +1292,6 @@
 <!-- Research area 2 -->
 <section aria-labelledby="tissue-title" class="research-area" id="tissue-engineering">
 <header class="area-heading">
-<span class="area-number">02</span>
 <h2 id="tissue-title">Tissue Engineering for <em>In Vitro</em> Tumor Models</h2>
 </header>
 <div class="area-content">
@@ -1160,7 +1308,6 @@
 <!-- Research area 3 -->
 <section aria-labelledby="protein-title" class="research-area" id="protein-engineering">
 <header class="area-heading">
-<span class="area-number">03</span>
 <h2 id="protein-title">Protein Engineering for Cancer Therapeutics</h2>
 </header>
 <div class="area-content">
@@ -1177,7 +1324,6 @@
 <!-- Research area 4: uploaded video -->
 <section aria-labelledby="docking-title" class="research-area" id="molecular-docking">
 <header class="area-heading">
-<span class="area-number">04</span>
 <h2 id="docking-title">Molecular Docking and Protein Simulations</h2>
 </header>
 <div class="area-content">
