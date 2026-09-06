@@ -158,7 +158,9 @@ function renderPhotos(){
   grid.innerHTML='';
   const shown=photos.slice(0,visibleCount);
   shown.forEach((p,index)=>{
-    const captionText=captions[p.number] || `PRISM Lab gallery photo ${String(p.number).padStart(2,'0')}`;
+    const captionText =
+      p.number === 8 ? "Team Lunch at KB's" :
+      (captions[p.number] || `PRISM Lab gallery photo ${String(p.number).padStart(2,'0')}`);
     const button=document.createElement('button');
     button.className='photo-item';
     button.type='button';
