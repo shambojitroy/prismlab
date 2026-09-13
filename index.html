@@ -73,6 +73,7 @@
       color:var(--navy);
       font-size:clamp(16px,2vw,21px);
       white-space:nowrap;
+      width:max-content;
     }
     .menu-wrap{position:relative}
     .menu-button{
@@ -127,7 +128,7 @@
     .hero-explore-wrap{
       position:absolute;
       left:26px;
-      bottom:38px;
+      bottom:52px;
       z-index:20;
       display:flex;
       flex-direction:column;
@@ -138,14 +139,17 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:13px 24px;
-      min-height:50px;
-      border-radius:14px;
+      box-sizing:border-box;
+      width:max-content;
+      min-width:100%;
+      padding:16px 30px;
+      min-height:58px;
+      border-radius:15px;
       background:linear-gradient(135deg,#3d1f63 0%,#142f68 100%);
       color:#fff;
       border:1px solid rgba(255,255,255,.30);
       font-weight:800;
-      font-size:15px;
+      font-size:17px;
       line-height:1;
       text-decoration:underline;
       text-decoration-thickness:1.5px;
@@ -164,26 +168,31 @@
     }
     .hero-explore-tagline{
       color:#fff;
-      font-size:12px;
-      font-weight:500;
+      font-size:13px;
+      font-weight:800;
       letter-spacing:.035em;
       line-height:1.35;
-      text-shadow:0 1px 5px rgba(0,0,0,.55);
+      text-shadow:0 2px 7px rgba(0,0,0,.78),0 1px 3px rgba(0,0,0,.60);
       white-space:nowrap;
+      width:max-content;
     }
     @media(max-width:560px){
       .hero-explore-wrap{
         left:16px;
-        bottom:24px;
-        gap:6px;
+        bottom:32px;
+        gap:7px;
       }
       .hero-explore-btn{
-        padding:12px 20px;
-        min-height:46px;
-        font-size:14px;
+        box-sizing:border-box;
+        width:max-content;
+        min-width:100%;
+        padding:14px 24px;
+        min-height:52px;
+        font-size:15px;
       }
       .hero-explore-tagline{
-        font-size:10.5px;
+        width:max-content;
+        font-size:11px;
         letter-spacing:.025em;
       }
     }
@@ -281,6 +290,91 @@
     }
     .dot{width:7px;height:7px;border-radius:50%;background:#c5d0de;transition:.2s}
     .dot.active{background:var(--purple);width:20px;border-radius:10px}
+
+    /* PRISM Lab statistics strip — placed directly below the slideshow */
+    .lab-stats{
+      width:100%;
+      margin:24px 0 0;
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      background:#fff;
+      border:1px solid #e5eaf1;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 16px 38px rgba(13,43,87,.14), 0 5px 14px rgba(13,43,87,.07);
+    }
+    .lab-stat{
+      min-height:150px;
+      padding:24px 18px 22px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      position:relative;
+    }
+    .lab-stat + .lab-stat{
+      border-left:1px solid #e1e7ef;
+    }
+    .lab-stat-number{
+      margin:0 0 10px;
+      font-size:clamp(30px,3.1vw,43px);
+      line-height:1.05;
+      font-weight:800;
+      letter-spacing:-.025em;
+      background:linear-gradient(135deg,#162f68 0%,#3d1f63 52%,#704a98 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
+      color:#162f68;
+    }
+    .lab-stat-label{
+      margin:0;
+      max-width:220px;
+      color:#5e6d82;
+      font-size:clamp(13px,1.35vw,16px);
+      line-height:1.55;
+      font-weight:500;
+    }
+    @media(max-width:760px){
+      .lab-stats{
+        margin-top:18px;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        border-radius:20px;
+      }
+      .lab-stat{
+        min-height:125px;
+        padding:20px 12px;
+      }
+      .lab-stat:nth-child(3){
+        border-left:0;
+        border-top:1px solid #e1e7ef;
+      }
+      .lab-stat:nth-child(4){
+        border-top:1px solid #e1e7ef;
+      }
+      .lab-stat-number{font-size:30px}
+      .lab-stat-label{font-size:13px}
+    }
+    @media(max-width:430px){
+      .lab-stats{
+        margin-top:15px;
+        border-radius:18px;
+      }
+      .lab-stat{
+        min-height:112px;
+        padding:17px 8px;
+      }
+      .lab-stat-number{
+        font-size:27px;
+        margin-bottom:7px;
+      }
+      .lab-stat-label{
+        font-size:11.5px;
+        line-height:1.4;
+      }
+    }
+
     .section{padding:58px 0 0}
     .section:first-of-type{text-align:center}
     .eyebrow{
@@ -369,6 +463,61 @@
       transition:.2s;
     }
     .pill:hover{background:var(--purple)}
+
+/* ===== Funding & Collaborators ===== */
+.funding-section{
+  width:100%; margin:42px auto 0; padding:34px 28px 32px; text-align:center;
+  background:linear-gradient(135deg,#edf5ff 0%,#f7f1fb 100%);
+  border:1px solid #d8e2ef; border-radius:24px;
+  box-shadow:0 8px 20px rgba(13,43,87,.14);
+}
+.funding-eyebrow{margin:0 0 8px;color:#1597a5;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.funding-section h2{margin:0 0 8px;font-size:clamp(27px,3vw,38px);color:var(--navy);line-height:1.2}
+.funding-subheading{margin:0 auto 28px;max-width:900px;color:var(--muted);font-size:clamp(14px,1.6vw,17px);line-height:1.6}
+.funding-logos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:760px;margin:0 auto}
+.funding-logo-card{min-height:105px;display:flex;align-items:center;justify-content:center;padding:15px 20px;background:#fff;border:1px solid #dbe4ef;border-radius:18px;box-shadow:0 7px 18px rgba(13,43,87,.07)}
+.funding-logo-card img{width:100%;max-width:190px;height:72px;object-fit:contain;display:block}
+.funding-section + .collaborators-strip{margin-top:22px}
+
+/* ===== Full-width contact block merged into footer ===== */
+.connect{
+  width:100vw; margin:42px 0 0; margin-left:calc(50% - 50vw);
+  padding:54px max(32px,calc((100vw - 1080px)/2));
+  border:0; border-radius:0; box-shadow:none;
+  background:linear-gradient(135deg,#704a98 0%,#3d1f63 43%,#081b38 100%);
+  color:#fff; text-align:left;
+}
+.connect-inner{width:min(1080px,100%);margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,1fr);gap:64px;align-items:center}
+.connect-left .connect-eyebrow{margin:0 0 12px;color:#9fe4e6;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.connect-left h2{color:#fff;font-size:clamp(32px,4vw,48px);margin:0 0 18px;line-height:1.1}
+.connect-left p{color:rgba(255,255,255,.82);max-width:640px;margin:0 0 28px;font-size:clamp(15px,1.5vw,18px);line-height:1.7}
+.connect-btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 28px;border-radius:999px;background:linear-gradient(90deg,#12b8bd,#1597a5);color:#fff;font-weight:800;box-shadow:0 10px 24px rgba(0,0,0,.22);transition:transform .2s ease,filter .2s ease}
+.connect-btn:hover{transform:translateY(-2px);filter:brightness(1.07)}
+.connect-card{padding:30px 34px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.14);border-radius:24px;box-shadow:0 14px 34px rgba(0,0,0,.16)}
+.connect-card h3{margin:0 0 18px;color:#fff;font-size:27px}
+.connect-card p{margin:0;color:rgba(255,255,255,.82);font-size:16px;line-height:1.7}
+.connect-card .connect-tagline{margin-top:22px;color:#fff;font-weight:600}
+.site-footer{margin-top:0 !important}
+
+@media(max-width:760px){
+  .funding-section{margin-top:30px;padding:28px 16px 24px;border-radius:20px}
+  .funding-logos{grid-template-columns:1fr;gap:14px;max-width:430px}
+  .funding-logo-card{min-height:100px}
+  .connect{padding:42px 20px}
+  .connect-inner{grid-template-columns:1fr;gap:28px}
+  .connect-card{padding:25px 22px}
+}
+@media(max-width:430px){
+  .funding-section h2{font-size:27px}
+  .funding-subheading{font-size:13px;margin-bottom:20px}
+  .funding-logo-card{min-height:92px;padding:12px 18px}
+  .funding-logo-card img{height:64px}
+  .connect{padding:38px 16px}
+  .connect-left h2{font-size:34px}
+  .connect-card h3{font-size:24px}
+  .connect-card p{font-size:14px}
+}
+
     .connect{
       margin:54px auto 0;
       width:min(760px,100%);
@@ -849,6 +998,159 @@
       .dept-info-text{padding:16px;font-size:13px;line-height:1.5;}
     }
 </style>
+<style>
+
+/* ===== Final visual refinements ===== */
+.funding-section{
+  width:min(900px,92%);
+  margin:34px auto 0;
+  padding:28px 24px 26px;
+  background:linear-gradient(135deg,#f1f6ff 0%,#f8f3fb 100%);
+  border:1px solid #d9e2ee;
+  border-radius:22px;
+  box-shadow:0 8px 20px rgba(13,43,87,.12);
+}
+.funding-eyebrow{
+  color:#704a98;
+  font-weight:800;
+}
+.funding-section h2{
+  color:var(--navy);
+}
+.funding-subheading{
+  margin-bottom:22px;
+}
+.funding-logos{
+  max-width:700px;
+  gap:18px;
+}
+.funding-logo-card{
+  min-height:92px;
+}
+
+/* Compact full-width contact/footer bridge */
+.connect{
+  width:100vw;
+  margin:32px 0 0;
+  margin-left:calc(50% - 50vw);
+  padding:34px max(28px,calc((100vw - 1080px)/2));
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  background:linear-gradient(120deg,#4a285f 0%,#33204f 38%,#102a4a 100%);
+  color:#fff;
+}
+.connect-inner{
+  width:min(1000px,100%);
+  margin:0 auto;
+  grid-template-columns:minmax(0,1fr) minmax(340px,1fr);
+  gap:48px;
+}
+.connect-left .connect-eyebrow{
+  color:#c7a7e2;
+}
+.connect-left h2{
+  color:#fff;
+  margin-bottom:12px;
+}
+.connect-left p{
+  color:rgba(255,255,255,.80);
+  margin-bottom:20px;
+}
+.connect-btn{
+  background:#fff;
+  color:#34204f;
+  box-shadow:0 8px 20px rgba(0,0,0,.20);
+}
+.connect-btn:hover{
+  background:#f4eff8;
+  color:#34204f;
+}
+.connect-card{
+  padding:24px 28px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(201,174,225,.22);
+  border-radius:20px;
+  box-shadow:0 10px 26px rgba(0,0,0,.15);
+}
+.connect-card h3{
+  color:#fff;
+  margin-bottom:12px;
+}
+.connect-card p{
+  color:rgba(255,255,255,.80);
+}
+.connect-card .connect-tagline{
+  color:#d5b8eb;
+  margin-top:16px;
+}
+
+/* Eliminate the footer gap completely */
+.connect + .site-footer,
+.connect + footer{
+  margin-top:0 !important;
+}
+
+@media(max-width:760px){
+  .funding-section{
+    width:calc(100% - 28px);
+    margin-top:24px;
+    padding:24px 14px 22px;
+  }
+  .funding-logos{
+    grid-template-columns:1fr;
+    max-width:400px;
+  }
+  .connect{
+    margin-top:24px;
+    padding:30px 18px;
+  }
+  .connect-inner{
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+  .connect-card{
+    padding:22px 20px;
+  }
+}
+
+</style>
+<style>
+
+/* ===== Contact block flush with footer ===== */
+.connect{
+  margin-bottom:0 !important;
+  border-bottom:0 !important;
+}
+.connect + footer,
+.connect + .site-footer,
+.connect ~ footer,
+.connect ~ .site-footer{
+  margin-top:0 !important;
+  padding-top:0 !important;
+  border-top:0 !important;
+}
+.connect + footer::before,
+.connect + .site-footer::before{
+  display:none !important;
+  content:none !important;
+}
+
+</style>
+
+<style>
+/* FINAL: remove the real gap between contact block and footer */
+main{
+  padding-bottom:0 !important;
+}
+.connect{
+  margin-bottom:0 !important;
+}
+.site-footer{
+  margin-top:0 !important;
+  padding-top:0 !important;
+}
+</style>
 </head>
 <body>
   <header class="site-header">
@@ -894,6 +1196,25 @@
         </div>
         <div class="slide-dots" aria-hidden="true">
           <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </section>
+
+      <section class="lab-stats" aria-label="PRISM Lab at a glance">
+        <div class="lab-stat">
+          <div class="lab-stat-number">4+</div>
+          <p class="lab-stat-label">Core research themes</p>
+        </div>
+        <div class="lab-stat">
+          <div class="lab-stat-number">9+</div>
+          <p class="lab-stat-label">Researchers and scholars</p>
+        </div>
+        <div class="lab-stat">
+          <div class="lab-stat-number">3+</div>
+          <p class="lab-stat-label">Ongoing projects</p>
+        </div>
+        <div class="lab-stat">
+          <div class="lab-stat-number">10+</div>
+          <p class="lab-stat-label">Scientific facilities and instruments</p>
         </div>
       </section>
 
@@ -951,15 +1272,44 @@
         </article>
       </section>
 
-      <section class="connect">
-        <h2>Connect with the Lab</h2>
-        <p>Student opportunities and research enquiries, get in touch with the Prism Lab.</p>
-        <a class="connect-btn" href="mailto:shro3435@iitg.ac.in">Join us</a>
+      <section class="funding-section" aria-label="Funding and Collaborators">
+        <p class="funding-eyebrow">Support</p>
+        <h2>Fundings and Collaborators</h2>
+        <p class="funding-subheading">Research activities are supported through institutional and national funding programmes.</p>
+        <div class="funding-logos">
+          <div class="funding-logo-card"><img src="index-assets/funding-anusandhan-national-research-foundation.png" alt="Anusandhan National Research Foundation"></div>
+          <div class="funding-logo-card"><img src="index-assets/funding-dhr.png" alt="Department of Health Research, Ministry of Health and Family Welfare, Government of India"></div>
+          <div class="funding-logo-card"><img src="index-assets/funding-iit-guwahati.png" alt="Indian Institute of Technology Guwahati"></div>
+        </div>
       </section>
+
       <section class="collaborators-strip" aria-label="Our Collaborators">
         <div class="collaborators-track">
           <span><span class="collab-label">*Our Collaborators:</span> AIIMS Delhi, IIT Delhi, IIT Kharagpur, BITS Pilani, BIT Mesra, Sri SankarDeva Nethralaya Guwahati, Apollo Hospitals (AHERF) Hyderabad, CDRI Lucknow, Roskilde University (Denmark), UT Health Houston, Karkinos Healthcare.</span>
           <span aria-hidden="true"><span class="collab-label">*Our Collaborators:</span> AIIMS Delhi, IIT Delhi, IIT Kharagpur, BITS Pilani, BIT Mesra, Sri SankarDeva Nethralaya Guwahati, Apollo Hospitals (AHERF) Hyderabad, CDRI Lucknow, Roskilde University (Denmark), UT Health Houston, Karkinos Healthcare.</span>
+        </div>
+      </section>
+
+      <section class="connect" aria-label="Contact PRISM Lab">
+        <div class="connect-inner">
+          <div class="connect-left">
+            <p class="connect-eyebrow">Get in touch</p>
+            <h2>Let's connect</h2>
+            <p>For research collaboration, academic enquiries and laboratory-related information, visit the contact page.</p>
+            <a class="connect-btn" href="mailto:shro3435@iitg.ac.in">Join us</a>
+          </div>
+          <div class="connect-card">
+            <h3>PRISM Lab</h3>
+            <p>
+              Department of Biosciences and Bioengineering<br>
+              Indian Institute of Technology Guwahati<br>
+              Guwahati, Assam, India<br><br>
+              +91 361 258 3533<br>
+              Office room number: 0310<br>
+              Lab room number: 202L
+            </p>
+            <p class="connect-tagline">Research • Innovation • Collaboration</p>
+          </div>
         </div>
       </section>
 
