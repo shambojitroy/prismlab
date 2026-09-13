@@ -124,42 +124,67 @@
       box-shadow:none;
     }
 
-    .hero-explore-btn{
+    .hero-explore-wrap{
       position:absolute;
-      left:24px;
-      bottom:24px;
+      left:26px;
+      bottom:38px;
       z-index:20;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:8px;
+    }
+    .hero-explore-btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:11px 20px;
-      min-height:44px;
-      border-radius:12px;
-      background:rgba(255,255,255,.96);
-      color:var(--navy);
-      border:1px solid rgba(255,255,255,.9);
+      padding:13px 24px;
+      min-height:50px;
+      border-radius:14px;
+      background:linear-gradient(135deg,#3d1f63 0%,#142f68 100%);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.30);
       font-weight:800;
-      font-size:14px;
+      font-size:15px;
       line-height:1;
-      box-shadow:0 5px 16px rgba(0,0,0,.20);
-      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+      text-decoration:underline;
+      text-decoration-thickness:1.5px;
+      text-underline-offset:4px;
+      box-shadow:0 8px 24px rgba(24,20,70,.42),0 3px 8px rgba(0,0,0,.28);
+      transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
     }
     .hero-explore-btn:hover{
       transform:translateY(-2px);
-      background:#fff;
-      box-shadow:0 8px 22px rgba(0,0,0,.25);
+      filter:brightness(1.08);
+      box-shadow:0 11px 30px rgba(24,20,70,.50),0 4px 10px rgba(0,0,0,.30);
     }
     .hero-explore-btn:focus-visible{
       outline:3px solid rgba(135,185,139,.75);
       outline-offset:3px;
     }
+    .hero-explore-tagline{
+      color:#fff;
+      font-size:12px;
+      font-weight:500;
+      letter-spacing:.035em;
+      line-height:1.35;
+      text-shadow:0 1px 5px rgba(0,0,0,.55);
+      white-space:nowrap;
+    }
     @media(max-width:560px){
-      .hero-explore-btn{
+      .hero-explore-wrap{
         left:16px;
-        bottom:16px;
-        padding:10px 16px;
-        min-height:40px;
-        font-size:13px;
+        bottom:24px;
+        gap:6px;
+      }
+      .hero-explore-btn{
+        padding:12px 20px;
+        min-height:46px;
+        font-size:14px;
+      }
+      .hero-explore-tagline{
+        font-size:10.5px;
+        letter-spacing:.025em;
       }
     }
 
@@ -856,7 +881,10 @@
     <div class="container">
       <section class="hero" aria-label="PRISM Lab research slideshow">
         <div class="slide-stage">
-          <a class="hero-explore-btn" href="instruments and facilities.html" aria-label="Explore the Lab - Instruments and Facilities">Explore the Lab</a>
+          <div class="hero-explore-wrap">
+            <a class="hero-explore-btn" href="instruments and facilities.html" aria-label="Explore the Lab - Instruments and Facilities">Explore our lab</a>
+            <div class="hero-explore-tagline">Science that connects molecules to medicine</div>
+          </div>
                      <div class="slide active crossfade"><img src="index-assets/slide-01.jpg" alt="PRISM Lab research image 1"></div>
            <div class="slide gentle-zoom"><img src="index-assets/slide-02.jpg" alt="PRISM Lab research image 2"></div>
            <div class="slide blue-zoom"><img src="index-assets/slide-03.png" alt="PRISM Lab research image 3"></div>
