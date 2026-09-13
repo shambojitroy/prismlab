@@ -123,6 +123,46 @@
       padding:0;
       box-shadow:none;
     }
+
+    .hero-explore-btn{
+      position:absolute;
+      left:24px;
+      bottom:24px;
+      z-index:20;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:11px 20px;
+      min-height:44px;
+      border-radius:12px;
+      background:rgba(255,255,255,.96);
+      color:var(--navy);
+      border:1px solid rgba(255,255,255,.9);
+      font-weight:800;
+      font-size:14px;
+      line-height:1;
+      box-shadow:0 5px 16px rgba(0,0,0,.20);
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .hero-explore-btn:hover{
+      transform:translateY(-2px);
+      background:#fff;
+      box-shadow:0 8px 22px rgba(0,0,0,.25);
+    }
+    .hero-explore-btn:focus-visible{
+      outline:3px solid rgba(135,185,139,.75);
+      outline-offset:3px;
+    }
+    @media(max-width:560px){
+      .hero-explore-btn{
+        left:16px;
+        bottom:16px;
+        padding:10px 16px;
+        min-height:40px;
+        font-size:13px;
+      }
+    }
+
     .slide-stage{
       position:relative;
       width:100%;
@@ -816,6 +856,7 @@
     <div class="container">
       <section class="hero" aria-label="PRISM Lab research slideshow">
         <div class="slide-stage">
+          <a class="hero-explore-btn" href="instruments and facilities.html" aria-label="Explore the Lab - Instruments and Facilities">Explore the Lab</a>
                      <div class="slide active crossfade"><img src="index-assets/slide-01.jpg" alt="PRISM Lab research image 1"></div>
            <div class="slide gentle-zoom"><img src="index-assets/slide-02.jpg" alt="PRISM Lab research image 2"></div>
            <div class="slide blue-zoom"><img src="index-assets/slide-03.png" alt="PRISM Lab research image 3"></div>
